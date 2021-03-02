@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} A
+ * @return {number[]}
+ */
+var sortedSquares = function(A) {
+    let res = [];
+    
+    for (let i = 0; i < A.length; i++){
+        res.push(A[i] = A[i] * A[i]);
+    }
+    
+    function sortNum(a, b){
+        return a - b;
+    }
+    
+    res.sort(sortNum)
+    
+    return res;
+};
