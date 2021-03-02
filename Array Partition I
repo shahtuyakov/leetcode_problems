@@ -1,0 +1,26 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var arrayPairSum = function(nums) {
+    let sum = 0;
+    let sort = nums.sort(sortNum);
+    /*// сортируем nums по возрастанию
+    for (let i = 0; i < nums.length; i++){
+      for (let j = i + 1; j < nums.length; j++){
+        if (nums[i] > nums[j]){
+            nums[i] = nums.splice(j, 1, nums[i])[0];
+        }
+      }
+    }*/
+    // суммируем четное значение так как оно будет меньше чем не четное
+    
+    function sortNum(a, b){
+      return a - b;
+    }
+    
+    for (let i = 0; i < sort.length; i += 2){
+        sum += sort[i];
+    }
+    return sum;
+};
