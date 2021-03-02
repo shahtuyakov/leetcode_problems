@@ -1,0 +1,22 @@
+/**
+ * @param {number[][]} A
+ * @return {number[][]}
+ */
+var transpose = function(A) {
+    let a = [];
+    let res = [];
+    let l = 1;
+    
+    for (let i = 0; i <= A[0].length - 1; i++){
+        for (let j = 0; j < A.length; j++){
+            for (let k = i; k < l; k++){
+                a.push(A[j][k]);
+            }
+        }
+        res.push(a);
+        a = [];
+        l++;
+    }
+    
+    return res;
+};
