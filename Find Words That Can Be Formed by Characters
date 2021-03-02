@@ -1,0 +1,31 @@
+/**
+ * @param {string[]} words
+ * @param {string} chars
+ * @return {number}
+ */
+var countCharacters = function(words, chars) {
+    let counter = 0;
+    let arr = [];
+    
+    for (let i = 0; i < words.length; i++){
+        let len = words[i].length;
+        let arrchar = chars.split('');
+        for (let j = 0; j < words[i].length; j++){
+            for (let k = 0; k < arrchar.length; k++){
+                if (words[i][j] === arrchar[k] && chars.length > len){
+                    len--;
+                    arrchar.splice(k, 1);
+                    if (len === 0){
+                        arr.push(words[i]);
+                    } 
+                    break;
+                }      
+            }   
+        } 
+    }
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++){
+        sum += arr[i].length;
+    }
+    return sum;
+};
