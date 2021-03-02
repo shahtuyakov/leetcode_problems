@@ -1,0 +1,28 @@
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+var findLucky = function(arr) {
+    let res = -1;
+    let q = -1;
+    
+    for (let i = 0; i < arr.length; i++){
+        if (checker(arr, arr[i])){
+            res = 0;
+            res += arr[i];
+            if (res > q){q = res}
+        }
+        if (i === arr.length -1){
+            return q;
+        }
+    }
+    
+    function checker(arr, num){
+        let f = 0;
+        for (let i = 0; i < arr.length; i++){
+            if (num === arr[i]){f++;}
+        }
+        if (f === num){return 1;}
+        else {return 0;}
+    }  
+};
