@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} heights
+ * @return {number}
+ */
+var heightChecker = function(heights) {
+    let res = 0;
+    
+    // создаем независимую копию массива
+    let target  = heights.slice();
+    // сортируем массив по возрастанию
+    target.sort(function(a, b){return a - b});
+    // ищем не равенства элементов по индексу если не равны то увеличиваем на один шаг res
+    for (let i = 0; i < heights.length; i++){
+        if (target[i] !== heights[i]){
+            res += 1;
+        }
+    }
+    return res;
+};
