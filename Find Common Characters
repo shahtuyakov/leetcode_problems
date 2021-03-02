@@ -1,0 +1,32 @@
+var commonChars = function(A) {
+    let res = [];
+    let output = [];
+    let counter = A.length;
+    
+    for (let i = 0; i < A.length; i++){
+      let arr = [];
+      arr = A[i].split('');
+      res.push(arr);
+      
+    }
+    
+    for (let i = 0; i < res[0].length; i++){
+        for (let j = 1; j < res.length; j++){
+            for (let k = 0; k < res[j].length; k++){
+                if (res[0][i] === res[j][k]){
+                    counter--;
+                    if (counter === 1){
+                        output.push(res[0][i]);
+                        delete res[j][k];
+                    }
+                    delete res[j][k];
+                    break;
+                }
+            }
+        }
+      counter = A.length;
+    }
+    
+    
+   return output;
+};
