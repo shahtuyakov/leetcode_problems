@@ -1,0 +1,25 @@
+/**
+ * @param {number[]} A
+ * @return {boolean}
+ */
+var isMonotonic = function(A) {
+    
+    if (A[0] <= A[1] && A[0] <= A[A.length - 1]){
+        for (let i = 0; i < A.length - 1; i++){
+            for (let j = i + 1; j < A.length; j++){
+                if (A[i] > A[j]){
+                    return false;
+                }
+            }
+        }
+    } else {
+        for (let i = 0; i < A.length - 1; i++){
+            for (let j = i + 1; j < A.length; j++){
+                if (A[i] < A[j]){
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+};
