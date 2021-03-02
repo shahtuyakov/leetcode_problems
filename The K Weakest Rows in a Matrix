@@ -1,0 +1,30 @@
+var kWeakestRows = function(mat, k) {
+    let res = [];
+    let numsold = 0;
+    let comp = [];
+    let output = [];
+    
+    for (let i = 0; i < mat.length; i++){
+        for (let j = 0; j < mat[i].length; j++){
+            if (mat[i][j] === 1){
+                numsold++;
+            }
+        }
+        res.push(numsold);
+        numsold = 0;
+    }
+    
+    comp = res.slice().sort((a, b) => a - b);
+    
+    for (let i = 0; i < comp.length; i++){
+      for (let j = 0; j < res.length; j++){
+        if (comp[i] === res[j] && res[j] >= 0){
+          output.push(j);
+          res[j] = -1;
+          break;
+        }
+      }  
+    }
+    
+  return output.slice(0, k);
+};
