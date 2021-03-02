@@ -1,0 +1,26 @@
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+var arrayRankTransform = function(arr) {
+    let copy_arr = arr.slice().sort(function (a, b){return a - b});
+    let res = [];
+    let rank = {};
+    
+    r = 1;
+    for (let i = 0; i < copy_arr.length; i++){
+        if (!rank[copy_arr[i]]){
+            rank[copy_arr[i]] = r;
+            r++;
+        }
+    }
+    
+    for (let i = 0; i < arr.length; i++){
+        let pos = rank[arr[i]];
+        res.push(pos);
+    }
+    
+    
+    
+    return res;
+};
