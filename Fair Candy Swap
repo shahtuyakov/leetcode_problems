@@ -1,0 +1,18 @@
+/**
+ * @param {number[]} A
+ * @param {number[]} B
+ * @return {number[]}
+ */
+var fairCandySwap = function(A, B) {
+    let suma = A.reduce((a, b) => a + b);
+    let sumb = B.reduce((a, b) => a + b);
+    let dif = (suma - sumb) / 2;
+    
+    for (let i = 0; i < B.length; i++){
+        let curr = B[i] + dif
+        if(A.includes(curr)){
+            return [curr, B[i]]
+        } 
+    }
+    
+};
