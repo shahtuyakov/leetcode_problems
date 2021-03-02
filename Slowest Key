@@ -1,0 +1,39 @@
+/**
+ * @param {number[]} releaseTimes
+ * @param {string} keysPressed
+ * @return {character}
+ */
+var slowestKey = function(releaseTimes, keysPressed) {
+    let key = keysPressed.split('')
+    let time = [];
+    time.push(releaseTimes[0]);
+    
+    for (let i = 1; i < releaseTimes.length; i++){
+        for (let j = 1; j < key.length; j++){
+            let q = releaseTimes[i] - releaseTimes[i - 1];
+            time.push(q);
+            break;
+        }
+    }
+    
+    let res = [];
+    let max = time[0];
+    for (let i = 0; i < time.length; i++){
+        if (time[i] > max){
+            max = time[i];
+            res.shift();
+            res.push(key[i])
+        } 
+        else if (time[i] === max){
+            res.push(key[i]);
+        }
+    }
+    
+    if (res.length > 1){
+        res.sort();
+        return res[res.length -1];
+    }
+    
+    return res[0];
+    
+};
