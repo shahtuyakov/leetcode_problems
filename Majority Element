@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function(nums) {
+    
+    if (nums.length < 1){return nums[0];}
+    
+    
+    let w = Math.floor((nums.length - 1) / 2);
+    
+    nums.sort(function(a, b) {return a - b;})
+    
+    for (let i = 0; i < nums.length / 2; i++){
+        if (nums[i] === nums[i + w]){
+            return nums[i];
+        }
+    }
+};
