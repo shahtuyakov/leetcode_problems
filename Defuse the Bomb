@@ -1,0 +1,27 @@
+/**
+ * @param {number[]} code
+ * @param {number} k
+ * @return {number[]}
+ */
+var decrypt = function(code, k) {
+    let res = [];
+    let sum = 0;
+    let len = code.length;
+    let z = 1;
+    
+    if (k < 0){
+        z = Math.abs(k) + (len + k) * 2;
+    }
+    
+    for (let i = z; i < len + z; i++){
+        let start = i;
+        let end = start + Math.abs(k);
+        
+        for (let j = start; j < end; j++){
+            sum += code[j % len];
+        }
+        res.push(sum);
+        sum = 0;
+    }
+    return res;
+};
