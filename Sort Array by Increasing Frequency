@@ -1,0 +1,53 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+
+var frequencySort = function(nums) {
+    let val = [];
+    let pos = [];
+    let obj = {};
+    let res = [];
+    
+    for (let i = 0; i < nums.length; i++){
+        obj[nums[i]] = (obj[nums[i]] || 0) + 1;
+    }
+    
+    for (let key in obj){
+        pos.push(obj[key])
+    }
+    
+    pos.sort(function(a, b){return a - b});
+    
+    
+    for (let i = 0; i < pos.length; i++){
+        for (let key in obj){
+            if (pos[i] === obj[key]){
+                val.push(+key);
+                delete obj[key];
+            }  
+        }
+    }
+    
+    
+    for (let i = 1; i < pos.length; i++){
+        if (pos[i - 1] === pos[i]){
+            if (val[i - 1] < val[i]){
+                val[i - 1] = val.splice(i, 1, val[i - 1])[0];
+                i = 0;
+            }
+        }
+        
+    }
+    
+    for (let i = 0; i < val.length; i++){
+        for (let j = pos[i]; j != 0; j--){
+            res.push(val[i]);  
+        }  
+    }
+    
+    return res;
+    
+    
+};
+
