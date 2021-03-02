@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} salary
+ * @return {number}
+ */
+var average = function(salary) {
+    let copy;
+    let output = 0;
+    
+    salary.sort(function(a, b){return a - b});
+    
+    copy = salary.slice(1, salary.length - 1);
+    
+    for (let i = 0; i < copy.length; i++){
+        output += copy[i] / copy.length;
+    }
+    
+    
+    return output
+};
