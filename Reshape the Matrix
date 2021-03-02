@@ -1,0 +1,21 @@
+/**
+ * @param {number[][]} nums
+ * @param {number} r
+ * @param {number} c
+ * @return {number[][]}
+ */
+var matrixReshape = function(nums, r, c) {
+    let nums_copy = nums.flat();
+    let len_of_nums = nums_copy.length;
+    let res = [];
+    
+    if (len_of_nums !== r * c){ 
+        return nums
+    } else {
+        for (let i = 0; i < r; i++){
+            res[i] = nums_copy.slice((i * c), (i * c) + c);
+        }
+    }
+    
+    return res;
+};
