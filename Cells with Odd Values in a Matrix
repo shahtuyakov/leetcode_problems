@@ -1,0 +1,53 @@
+/**
+ * @param {number} n
+ * @param {number} m
+ * @param {number[][]} indices
+ * @return {number}
+ */
+var oddCells = function(n, m, indices) {
+    let res = 0;
+    let matrix = [];
+    
+    for (let i = 0; i < n; i++){
+        matrix.push(new Array(m).fill(0));
+    }
+    
+    for (let i = 0; i < indices.length; i++){
+        let f = 1;
+        for (let j = 0; j < indices[i].length; j++){
+            if (f === 1){
+                filler(indices[i][j], matrix, f);
+                f = 0;
+            }else {
+                filler(indices[i][j], matrix, f);
+            }
+        }
+    }
+    
+    for (let i = 0; i < matrix.length; i++){
+        for (let j = 0; j < matrix[i].length; j++){
+            if (matrix[i][j] % 2 != 0){
+                res++;
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    function filler(n, mat, flag){
+        if (flag === 1){
+            for (let j = 0; j < mat[n].length; j++){
+                mat[n][j] += 1;
+            }
+        } else {
+            for (let i = 0; i < mat.length; i++){
+                mat[i][n] += 1;
+            }
+        }
+    } 
+    
+    return res;
+    
+};
