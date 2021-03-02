@@ -1,0 +1,23 @@
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+var trimMean = function(arr) {
+    let delnum = arr.length * 0.05;
+    let k = arr.length / 20;
+    let sum = 0;
+    let res;
+    
+    arr.sort(function(a, b){return a -b});
+    
+    arr.splice(0, delnum);
+    arr.splice(arr.length - k, delnum);
+    
+    for (let i = 0; i < arr.length; i++){
+        sum += arr[i];
+    }
+    
+    res = sum / arr.length;
+    
+    return res;
+};
