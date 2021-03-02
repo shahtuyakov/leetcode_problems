@@ -1,0 +1,29 @@
+/**
+ * @param {number[][]} A
+ * @return {number[][]}
+ */
+var flipAndInvertImage = function(A) {
+    
+    // свапаем все элементы в под массивах
+    for (let i = 0; i < A.length; i++){
+        for (let j = 0; j < A[i].length; j++){
+            if (j < A[i].length - 1 - j){
+                let sw = A[i][j];
+                A[i][j] = A[i][A[i].length - 1 - j];
+                A[i][A[i].length - 1 - j] = sw;
+              }
+        }
+    }
+    // меняем значение элементов в каждом подмассиве
+    for (let i = 0; i < A.length; i++){
+        for (let j = 0; j < A[i].length; j++){
+            if (A[i][j] === 0){
+                A[i][j] = 1;
+            } else {
+                A[i][j] = 0;
+            }
+        }
+    }
+    
+    return A;
+};
