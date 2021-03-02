@@ -1,0 +1,28 @@
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+var sumOddLengthSubarrays = function(arr) {
+    let len = [];
+    let sum = 0;
+    
+    for (let i = 1; i <= arr.length; i++){
+        if (i % 2 != 0){
+            len.push(i);
+        }
+    }
+    
+    for (let k = 0; k < len.length; k++){
+        for (let i = 0; i < arr.length; i++){
+            for (let j = i; j < len[k] + i; j++){
+                sum += arr[j]  
+            }
+            if (arr[i + len[k]] === undefined){
+                break;  
+            }
+        } 
+    }
+    
+    return sum;
+    
+};
