@@ -1,0 +1,55 @@
+/**
+ * @param {number} n
+ * @param {number[]} rounds
+ * @return {number[]}
+ */
+var mostVisited = function(n, rounds) {
+    let res = [];
+    let sectors = [];
+    let output = [];
+    let max = 0;
+   
+    for (let i = 0; i < n; i++){
+        sectors.push(i + 1);
+    }
+    
+    for (let i = 1; i < rounds.length; i++){
+        pusher(rounds[i - 1], rounds[i], i - 1);
+    }
+    
+    
+    let result = res.reduce(function(acc, el) {
+        acc[el] = (acc[el] || 0) + 1;
+        return acc;
+    }, {});
+    
+    
+    for (let key in result){
+        
+        if (result[key] > max){ max = result[key]}
+    }
+    
+    for (let k = 0; k < sectors.length; k++){
+        if (result[sectors[k]] === max){
+            output.push(sectors[k]);
+        }  
+    }
+    
+    
+    function pusher(start, end, flag){
+        let s, e, l;
+        for (let i = 0; i < sectors.length; i++){
+            if (start === sectors[i] && flag === 0){ s = i }
+            if (start === sectors[i] && flag != 0) { s = i + 1;}
+            if (end === sectors[i]){ e = i;}
+            if (s != undefined && e != undefined){break;}
+        }
+        if (e < s){ l = n + e; }
+        else { l = e; }
+        for (let j = s; j < l + 1; j++){
+            res.push(sectors[j % n]);
+        }
+    }
+    
+    return output;
+};
