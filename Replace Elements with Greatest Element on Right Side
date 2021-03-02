@@ -1,0 +1,22 @@
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+var replaceElements = function(arr) {
+    let res = [];
+    res.unshift(-1);
+    
+    for (let i = arr.length - 1; i > 0; i--){
+      if (arr[i - 1] >= arr[i] && arr[i] >= res[0]){
+        res.unshift(arr[i]);
+      }
+      else if (arr[i] >= res[0]){
+        res.unshift(arr[i]);  
+      }
+      else {
+        res.unshift(res[0]);  
+      }
+    }
+    
+    return res;
+};
