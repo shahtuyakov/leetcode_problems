@@ -1,0 +1,60 @@
+/**
+ * @param {number} day
+ * @param {number} month
+ * @param {number} year
+ * @return {string}
+ */
+var dayOfTheWeek = function(day, month, year) {
+    let res_val = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+    
+    if (day === 29 && month === 2){
+        day -= 1;
+    }
+    
+    
+    let mon = {
+        1: 1,
+        2: 4,
+        3: 4,
+        4: 0,
+        5: 2,
+        6: 5,
+        7: 0,
+        8: 3,
+        9: 6,
+        10: 1,
+        11: 4,
+        12: 6,  
+    };
+
+    
+    function get_year(year){
+        let res;
+        let x = 0;
+        let y = year % 100;
+        let z = Math.floor(y / 4);
+        if (year < 2000){x = 0};
+        if (year > 1999){x = 6};
+        if (year >= 2100){x = 4};
+        
+        return res = ((x + y + z) % 7);     
+    }
+    
+    
+    function get_month(month){
+        for (let key in mon){
+            if (+key === month){
+                return mon[key];
+            }
+        }
+    }
+    
+    let day_of_week = (day + get_month(month) + get_year(year)) % 7;
+    
+    for (let i = 0; i < res_val.length; i++){
+        if (day_of_week === i){
+            return res_val[i];
+        }
+    } 
+    
+};
