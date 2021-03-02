@@ -1,0 +1,26 @@
+/**
+ * @param {number[]} nums
+ * @param {number} n
+ * @return {number[]}
+ */
+var shuffle = function(nums, n) {
+    let res = [];
+    let left = nums.slice(0, n);
+    let right = nums.slice(n);
+    let j = 0;
+    let k = 0;
+    
+    console.log(left);
+    console.log(right);
+    
+    for (let i = 0; i < nums.length; i++){
+        if (i % 2 === 0){
+            res.push(left[k]);
+            k++;
+        } else {
+            res.push(right[j]);
+            j++;
+        }
+    }
+    return res;
+}
