@@ -1,0 +1,17 @@
+/**
+ * @param {number} n
+ * @return {number[]}
+ */
+var sumZero = function(n) {
+    let arr = [];
+    // вставляем 0 если n не четное или n имеет длину 1
+    if (n % 2 !== 0 || n === 1){
+        arr.push(0);
+    }
+    // используем math.floor для того чтобы определять длину массива для 2х чисел сразу смотреть
+    // где arr.push(num1, num2)
+    for (let i = 0; i < Math.floor(n / 2); i++){
+        arr.push(n - i, -n + i)
+    }
+    return arr;
+};
