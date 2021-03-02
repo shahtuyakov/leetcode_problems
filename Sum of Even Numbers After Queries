@@ -1,0 +1,26 @@
+/**
+ * @param {number[]} A
+ * @param {number[][]} queries
+ * @return {number[]}
+ */
+var sumEvenAfterQueries = function(A, queries) {
+    let res = [];
+    
+    for (let i = 0; i < queries.length; i++){
+        plus(queries[i][0], queries[i][1]);
+    }
+    
+    function plus(n, index){
+        A[index] += n;
+        let num = 0;
+        for (let i = 0; i < A.length; i++){
+            if (A[i] % 2 === 0){
+                num += A[i];
+            }
+        }
+        res.push(num);
+    }
+    
+    return res;
+    
+};
