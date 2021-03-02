@@ -1,0 +1,18 @@
+/**
+ * @param {number} N
+ * @return {number}
+ */
+var fib = function(N) {
+    let fibarr = [0,1,1];
+    
+    if (N < 3){
+        return fibarr[N];
+    }
+    // проходимся по arr добавляя сумму двух предедуших чисел в arr
+    for (let i = 3; i <= N; i++){
+        fibarr.push(fibarr[i - 1] + fibarr[i - 2]);
+    }
+    
+    return fibarr[N];
+    
+};
