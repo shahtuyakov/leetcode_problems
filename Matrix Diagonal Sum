@@ -1,0 +1,33 @@
+/**
+ * @param {number[][]} mat
+ * @return {number}
+ */
+var diagonalSum = function(mat) {
+    let res = 0;
+    
+
+    for (let i = 0; i < mat.length; i++){
+        for (let j = i; j < i + 1; j++){
+            if (i === j){
+                res += mat[i][j];  
+            }  
+        }
+    }
+    for (let i = 0; i < mat.length; i++){
+        for (let j = mat.length - 1 - i; j >= 0; j--){
+            if (i < j) {
+                res += mat[i][j];
+                break;
+            } 
+            else if (i > j){
+                res += mat[i][j];
+                break;
+            }
+            else {
+                break;  
+            }
+        }
+    }
+    return res;
+
+};
