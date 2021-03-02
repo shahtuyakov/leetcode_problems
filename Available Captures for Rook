@@ -1,0 +1,61 @@
+/**
+ * @param {character[][]} board
+ * @return {number}
+ */
+var numRookCaptures = function(board) {
+    let count = 0;
+    let points = [];
+    let points_white = [];
+    let points_black = [];
+    
+    for (let i = 0; i < board.length; i++){
+        for (let j = 0; j < board[i].length; j++){
+            if (board[i][j] === 'R'){
+                count = rowcol(board, i, j);
+                return count;
+            }
+        }
+    }
+    
+    function rowcol(ar, x, y){
+        let c = 0;
+        for (let i = y; i < ar[x].length; i++){
+            if (ar[x][i] === 'p'){
+                c++;
+                break;
+            }
+            else if (ar[x][i] === 'B'){
+                break;
+            }
+        }
+        for (let i = y; i >= 0; i--){
+            if (ar[x][i] === 'p'){
+                c++;
+                break;
+            }
+            else if (ar[x][i] === 'B'){
+                break;
+            }
+        }
+        for (let j = x; j < ar.length; j++){
+            if (ar[j][y] === 'p'){
+                c++;
+                break;
+            }
+            else if (ar[j][y] === 'B'){
+                break;
+            }
+        }
+        for (let j = x; j >= 0; j--){
+            if (ar[j][y] === 'p'){
+                c++;
+                break;
+            }
+            else if (ar[j][y] === 'B'){
+                break;
+            }
+        }
+        return c;
+    }
+    
+};
