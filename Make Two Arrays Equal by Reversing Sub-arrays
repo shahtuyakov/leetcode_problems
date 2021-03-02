@@ -1,0 +1,22 @@
+/**
+ * @param {number[]} target
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var canBeEqual = function(target, arr) {
+    for (let i = 0; i < target.length; i++){
+        for (let j = i; j < arr.length; j++){
+            if (target[i] === arr[j]){
+                // меняем местами значение индексов в arr  
+                // где i мы указываем на то чтобы target и arr были одинаковы по индексам4
+                // если они равны то свап поменять так чтобы значения индексов tar и arr были ===
+                arr[j] = arr.splice(i, 1, arr[j])[0]; 
+                break;  
+            }
+            else if (j === arr.length - 1){
+                return false;  
+            }
+        }
+    }
+    return true;
+};
