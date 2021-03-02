@@ -1,0 +1,14 @@
+/**
+ * @param {number[]} nums
+ * @param {number[]} index
+ * @return {number[]}
+ */
+var createTargetArray = function(nums, index) {
+    let res = [];
+    for (let i = 0; i < index.length; i++){
+        let k = index[i];
+            
+        res.splice(k, 0, [nums[i]]);
+    }
+    return res;
+};
