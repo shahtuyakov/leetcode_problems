@@ -1,0 +1,20 @@
+/**
+ * @param {number[]} distance
+ * @param {number} start
+ * @param {number} destination
+ * @return {number}
+ */
+var distanceBetweenBusStops = function(distance, start, destination) {
+    let begin = Math.min(start, destination);
+    let end = Math.max(start, destination);
+    
+    let way1 = [...distance];
+    let way2 = way1.splice(begin, end - begin);
+    
+    let x = way1.reduce((acc, b) => acc + b);
+    let y = way2.reduce((acc, b) => acc + b);
+    
+    return Math.min(x, y);
+    
+    
+};
