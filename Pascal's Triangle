@@ -6,12 +6,11 @@ var generate = function(numRows) {
         res[i] = new Array(i + 1);
         res[i][0] = 1;
         for (let j = 1; j < res[i].length; j++){
-            if (res[i - 1].length >= 2){
-                res[i][j] = res[i - 1][j - 1] + res[i - 1][j];  
+            if (j < i){
+                res[i][j] = res[i - 1][j - 1] + res[i - 1][j];
             }
-            let len = res[i].length
-            if (j == len - 1){
-                res[i][j] = 1;  
+            else {
+                res[i][j] = 1;
             }
         }
     }
