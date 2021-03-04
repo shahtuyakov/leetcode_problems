@@ -1,0 +1,100 @@
+/**
+ * @param {number[][]} moves
+ * @return {string}
+ */
+var tictactoe = function(moves) {
+    var empty_mat = [...Array(3)].map(e => Array(3));
+    let res;
+    
+    for (let i = 0; i < moves.length; i++){
+        if (i % 2 == 0){
+            let k = moves[i][0];
+            let j = moves[i][1];
+            empty_mat[k][j] = "a";
+        }
+        else {
+            let k = moves[i][0];
+            let j = moves[i][1];
+            empty_mat[k][j] = "b";  
+        }
+        
+    }
+    
+    res = cheker_row(empty_mat);
+    if (res != undefined){return res;}
+    
+    res = cheker_col(empty_mat);
+    if (res != undefined){return res;}
+    
+    res = dioganal1(empty_mat);
+    if (res != undefined){return res;}
+    
+    res = dioganal2(empty_mat);
+    if (res != undefined){return res;}
+    
+    
+    function cheker_row(mat){
+        let n = 0;
+        let p = 0;
+        for (let i = 0; i < mat.length; i++){
+            for (let j = 0; j < mat[i].length; j++){
+                if (mat[i][j] === "a"){n++};
+                if (mat[i][j] === "b"){p++}
+            }
+            if (n == 3){return "A"};
+            if (p == 3){return "B"};
+            n = 0;
+            p = 0;
+        }
+    }
+    
+    function cheker_col(mat){
+        let n = 0;
+        let p = 0;
+        let len = mat[0].length;
+        for (let i = 0; i < len; i++){
+            for (let j = 0; j < mat.length; j++){
+                if (mat[j][i] == "a"){n++};
+                if (mat[j][i] == "b"){p++};
+            }
+            if (n == 3){return "A"};
+            if (p == 3){return "B"};
+            n = 0;
+            p = 0;
+        }
+    }
+    
+    function dioganal1(mat){
+        let n = 0;
+        let p = 0;
+        let len = mat[0].length;
+        for (let i = 0; i < len; i++){
+            for (let j = i; i < mat.length; j++){
+                if (mat[j][i] == "a"){n++};
+                if (mat[j][i] == "b"){p++};
+                break;
+            }  
+        }
+        if (n == 3){return "A"};
+        if (p == 3){return "B"};
+    }
+    
+    function dioganal2(mat){
+        let n = 0;
+        let p = 0;
+        for (let i = 0; i < mat.length; i++){
+            for (let j = mat[i].length - 1 - i; j >= 0; j--){
+                if (mat[i][j] == "a"){n++};
+                if (mat[i][j] == "b"){p++};
+                break;
+            }  
+        }
+        if (n == 3){return "A"};
+        if (p == 3){return "B"};
+    }
+    
+    
+    
+    return (moves.length < 9) ? "Pending" : "Draw"
+    
+};
