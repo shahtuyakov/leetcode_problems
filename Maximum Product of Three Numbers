@@ -1,0 +1,9 @@
+var maximumProduct = function(nums) {
+    let sortet = nums.sort((a, b) => a - b);
+    let len = sortet.length - 1;
+    
+    let res1 = sortet[0] * sortet[1] * sortet[len];
+    let res3 = sortet[len] * sortet[len - 1] * sortet[len - 2] 
+    
+    return Math.max(res1, res3);
+};
