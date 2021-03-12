@@ -1,0 +1,17 @@
+var coinChange = function(coins, amount, memo = {}) {
+  if (amount in memo) return memo[amount];
+  if (amount == 0) return 0;
+  if (amount < 0) return -1;
+
+  let  count = Infinity; // глобальная переменная
+
+  for (let n of coins){
+    let reminder = amount - n;
+    let curres = coinChange(coins, reminder, memo);
+    if (curres != -1){
+      count = Math.min(count, curres + 1)
+    }
+  }
+
+  return (count == Infinity) ? memo[amount] = -1 : memo[amount] = count;
+};
