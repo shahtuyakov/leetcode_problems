@@ -1,0 +1,8 @@
+/**
+ * @param {string} n
+ * @return {number}
+ */
+var minPartitions = function(n) {
+    let nums = n.split('');
+    return nums.reduce((a, b) => a < b ? a = b : a);
+};
