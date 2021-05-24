@@ -1,0 +1,15 @@
+var countVowelStrings = function(n) {
+    return (n + 4) * (n + 3) * (n + 2) * (n + 1) / 24;
+    
+    /*
+    var countVowelStrings = function(n) {
+        let dp = Array(5).fill(1)
+        for(let i =0;i<n;i++){
+            for(let j =1;j<5;j++){
+                dp[j]=dp[j]+dp[j-1]
+            }
+        }
+        return dp[4]
+    };
+    */
+};
