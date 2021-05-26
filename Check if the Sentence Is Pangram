@@ -1,0 +1,15 @@
+/**
+ * @param {string} sentence
+ * @return {boolean}
+ */
+var checkIfPangram = function(sentence) {
+    let alpha = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
+    let res = 0;
+    
+    for (let i = 0; i < alpha.length; i++){
+        if (sentence.includes(alpha[i])){
+            res += 1;
+        }
+    }
+    return res === 26 ? true : false;
+};
