@@ -1,7 +1,3 @@
-/**
- * @param {character[][]} board
- * @return {number}
- */
 var numRookCaptures = function(board) {
     let count = 0;
     let points = [];
