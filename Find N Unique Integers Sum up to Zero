@@ -2,6 +2,8 @@
  * @param {number} n
  * @return {number[]}
  */
+ 
+ 
 var sumZero = function(n) {
     let arr = [];
     // вставляем 0 если n не четное или n имеет длину 1
