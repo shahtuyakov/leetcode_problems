@@ -5,6 +5,7 @@ var coinChange = function(coins, amount, memo = {}) {
 
   let  count = Infinity; // глобальная переменная
 
+
   for (let n of coins){
     let reminder = amount - n;
     let curres = coinChange(coins, reminder, memo);
