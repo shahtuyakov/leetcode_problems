@@ -21,6 +21,7 @@ var busyStudent = function(startTime, endTime, queryTime) {
     return res;
 };
 
+
 let rangeNum = function(start, end, target){
     for (; start < end; start++){
         if (start === target){
