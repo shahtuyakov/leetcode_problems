@@ -1,0 +1,27 @@
+/**
+ * @param {string} boxes
+ * @return {number[]}
+ */
+var minOperations = function(boxes) {
+    let res = Array(boxes.length).fill(0);
+    let runingSum = 0;
+    let notEmpt = 0;
+    
+    for(let i = 0; i < boxes.length; i++){
+        res[i] += runingSum;
+        if (boxes[i] === "1") notEmpt++;
+        runingSum += notEmpt;
+    }
+    
+    runingSum = 0;
+    notEmpt = 0;
+    
+    for(let i = boxes.length - 1; i >= 0; i--){
+        res[i] += runingSum;
+        if (boxes[i] === "1") notEmpt++;
+        runingSum += notEmpt;
+    }
+    
+    return res
+    
+};
