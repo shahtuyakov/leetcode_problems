@@ -1,0 +1,42 @@
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var maxIncreaseKeepingSkyline = function(grid) {
+    let maxRow = {};
+    let maxCol = {};
+    let sum = 0;
+    
+    for (let i = 0; i < grid.length; i++){
+        let max = 0;
+        for (let j = 0; j < grid[0].length; j++){
+            if (grid[i][j] > max){
+                max = grid[i][j];
+            }
+            maxRow[i] = max;
+        }
+    }
+    
+    for (let i = 0; i < grid.length; i++){
+        let max = 0;
+        for (let j = 0; j < grid.length; j++){
+            if (grid[j][i] > max){
+                max = grid[j][i];
+            }
+            maxCol[i] = max;
+        }
+    }
+    
+    for (let i = 0; i < grid.length; i++){
+        for (let j = 0; j < grid[0].length; j++){
+            let newH = Math.min(maxRow[i], maxCol[j])
+            if (grid[i][j] < newH){
+                sum += newH - grid[i][j];
+                grid[i][j] = newH;
+            }
+        }
+    }
+    
+    return sum
+    
+};
