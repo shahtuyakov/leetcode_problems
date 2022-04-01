@@ -1,0 +1,21 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+    let subStr = '';
+    let res = 0;
+    let pos;
+    
+    for (let i = 0; i < s.length; i++){
+        pos = subStr.indexOf(s[i]);
+        
+        if (pos > -1){
+            subStr = subStr.substring(pos + 1);
+        }
+        
+        subStr += s[i];
+        res = Math.max(res, subStr.length);
+    }
+    return res;
+};
