@@ -1,0 +1,35 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var validPalindrome = function(s) {
+    let arr = s.split("");
+    let l = arr.length - 1;
+    
+    let checker = (arr) => {
+        let k = arr.length
+        for (let i = 0; i < k / 2; i++){
+            if (arr[i] !== arr[k - 1 - i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    for (let i = 0; i <= l; i++){
+        if (arr[i] !== arr[l - i]){
+            let temp = arr.slice();
+            temp.splice(i, 1)
+            if (checker(temp) ) {
+                return true
+            }
+            temp = arr.slice();
+            temp.splice(l - i, 1)
+            if (checker(temp) ) {
+                return true
+            }
+            return false;
+        }
+    }
+    return true;
+};
