@@ -45,7 +45,13 @@ let res = new Set(nums).size != nums.length ? true : false
 
 -------------
 
+Converting number to any base
 
+var convertToBase = function(num) {
+    return num.toString(base);
+};
+
+---------------------
 
 
 
