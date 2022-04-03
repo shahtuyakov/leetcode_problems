@@ -33,3 +33,19 @@ var validPalindrome = function(s) {
     }
     return true;
 };
+
+-------------------
+
+var validPalindrome = function(s) {
+    let i, j
+    for (i = 0, j = s.length - 1; s[i] === s[j]; i++, j--)
+        if (j <= i)
+            return true
+    for (let k = i, l = j - 1; s[k] === s[l]; k++, l--) 
+        if (l <= k) 
+            return true
+    for (let k = i + 1, l = j; s[k] === s[l]; k++, l--)
+        if (l <= k) 
+            return true
+    return false
+};
