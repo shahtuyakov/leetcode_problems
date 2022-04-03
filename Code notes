@@ -1,1 +1,13 @@
+Swap elements in arr
 
+const swap = (a, b) => [arr[a],arr[b]] = [arr[b],arr[a]]
+
+-------------------
+
+StringNum -> Number
+
+let strN = "5164"
+let num = 0;
+num = num * 10 + ~~strN
+
+------------------
