@@ -53,6 +53,16 @@ var convertToBase = function(num) {
 
 ---------------------
 
+Is char in strelement of arr
+arr = ["abc","rtt","for"];
+
+if (~arr[i].indexOf("char")){
+    code
+}
+
+--------------------
+
+
 
 
 
