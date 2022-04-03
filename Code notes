@@ -39,7 +39,11 @@ let wdup = [...new Set(arr)];
 
 --------------
 
+Find duplicate in arr 
 
+let res = new Set(nums).size != nums.length ? true : false
+
+-------------
 
 
 
