@@ -11,3 +11,11 @@ let num = 0;
 num = num * 10 + ~~strN
 
 ------------------
+
+Loop + if statement 
+
+for (let i = 0, j = 6; arr[i] === arr[j], i++, j--){
+    code
+}
+
+-----------------
