@@ -1,0 +1,40 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
+var swapNodes = function(head, k) {
+    const newNode = new ListNode(0, head);
+    let slow = newNode, fast = newNode;
+    
+    let firstNode = null, secondNode = null;
+    
+    while(k != 0){
+        fast = fast.next;
+        k -= 1;
+        
+    }
+    firstNode = fast;
+    // console.log(firstNode)
+    
+    while(fast){
+        slow = slow.next;
+        fast = fast.next;
+    }
+    secondNode = slow;
+    // console.log(secondNode)
+    
+    let temp = firstNode.val;
+    firstNode.val = secondNode.val;
+    secondNode.val = temp;
+    
+    return newNode.next;
+    
+};
