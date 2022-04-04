@@ -62,7 +62,7 @@ if (~arr[i].indexOf("char")){
 
 --------------------
 
-Count all odd numbers
+Count all odd numbers in range
 
 res = Math.floor((high - low) / 2);
 if (low % 2 != 0 || high % 2 != 0) res++;
