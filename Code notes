@@ -69,7 +69,11 @@ if (low % 2 != 0 || high % 2 != 0) res++;
 
 ------------------
 
+Math.floor operation
 
+let x = ((left + rigth) / 2) << 0;
+
+-----------------
 
 
 
