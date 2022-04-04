@@ -1,0 +1,16 @@
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var subtractProductAndSum = function(n) {
+    let sum = 0;
+    let product = 1;
+    
+    while (n > 0){
+        let x = n % 10;
+        n = Math.floor(n / 10);
+        sum += x;
+        product *= x;
+    }
+    return product - sum
+};
