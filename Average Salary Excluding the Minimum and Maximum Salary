@@ -17,3 +17,17 @@ var average = function(salary) {
     
     return output
 };
+
+
+var average = function(salary) {
+    salary.sort((a, b) => a - b);
+    let res = 0;
+    let c = 0;
+    
+    for(let i = 1; i < salary.length - 1; i++){
+        res += salary[i];
+        c++;
+    }
+    return res / c;
+};
+
