@@ -8,7 +8,7 @@ var peakIndexInMountainArray = function(arr) {
     let mid;
     
     while (s < e){
-        mid = (s + e) / 2;
+        mid = (s + e) / 2 << 0;
         if (arr[mid] < arr[mid + 1]) s = mid + 1;
         else {
             e = mid;
