@@ -1,0 +1,17 @@
+var mySqrt = function(x) {
+    let i = 1;
+    let j = x;
+    let ans = 0;
+    
+    while (i <= j){
+        let mid = i + ((j - i)/2 << 0);
+        if (mid <= x / mid){
+            i = mid + 1;
+            ans = mid;
+        }
+        else {
+            j = mid - 1;  
+        }
+    }
+    return ans;
+};
