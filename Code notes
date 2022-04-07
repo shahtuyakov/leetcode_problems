@@ -75,6 +75,11 @@ let x = ((left + rigth) / 2) << 0;
 
 -----------------
 
+Max element in array
+
+let max = Math.max(...arr);
+
+---------------
 
 
 
