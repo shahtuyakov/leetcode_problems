@@ -81,6 +81,18 @@ let max = Math.max(...arr);
 
 ---------------
 
+Get first 2 max element in array
+
+let arr = [1,4,2,5,7,4,24,6];
+const [stoneA, stoneB, ...anyStones] = arr.sort((a, b) => b - a);
+
+stoneA = 24;
+stoneB = 7;
+
+anyStones = [6,5,4,4,2,1];
+
+-------------
+
 
 
 
