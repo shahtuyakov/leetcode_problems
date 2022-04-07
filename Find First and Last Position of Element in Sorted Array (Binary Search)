@@ -1,0 +1,35 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var searchRange = function(nums, target) {
+    // let i = nums.indexOf(target);
+    // let j = nums.lastIndexOf(target);
+    // return [i, j];
+    //-------------------------------
+    
+    let start = 0;
+    let end = nums.length - 1;
+    
+    while (start <= end){
+        let mid = start + (end - start) / 2 << 0;
+        if (nums[mid] === target){
+            start = mid;
+            end = mid;
+            break;
+        }
+        if (nums[mid] > target){
+            end = mid - 1;
+        }
+        else {
+            start = mid + 1;
+        }
+    }
+    
+    if (start > end) return [-1, -1];
+    
+    while (nums[start - 1] === target) start -= 1;
+    while (nums[end + 1] === target) end += 1;
+    return [start, end];
+};
