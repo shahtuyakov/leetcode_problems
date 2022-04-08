@@ -1,0 +1,16 @@
+var largestPerimeter = function(nums) {
+    const sorted = nums.sort((a,b)=>b-a)
+    console.log(sorted)
+    
+    for(let i=0 ; i< nums.length-2; i++){
+        
+        
+        const c = sorted[i];
+        const b = sorted[i+1];
+        const a = sorted[i+2];
+    
+        
+        if(a+b>c) return a+b+c
+    }
+    return 0
+};
