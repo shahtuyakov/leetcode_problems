@@ -1,0 +1,24 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {number}
+ */
+var getDecimalValue = function(head) {
+    let arr = [];
+    let res;
+    
+    while(head != null){
+        arr.push(head.val)
+        head = head.next;
+    }
+    
+    res = arr.reverse().reduce((x, y, i) => (y == 1) ? x + Math.pow(2, i) : x)
+    
+    return res;
+};
