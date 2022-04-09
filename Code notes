@@ -110,6 +110,12 @@ let x = [...Object.keys(obj)]
 
 -----------
 
+Map array of elements
+
+let map = new Map();
+nums.forEach(n => map.set(n, map.get(n) + 1 || 1));
+
+-----------------
 
 
 
