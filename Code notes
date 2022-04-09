@@ -149,7 +149,20 @@ function createList(array) {
 
 --------------------
 
+Swaping linked list if statement 
 
+if (l1.val > l2.val){
+    [l1, l2] = [l2, l1]
+}
+
+    if (!l1) return l2;
+    if (!l2) return l1;
+    ||||||||||||||||||
+if (!l1 || !l2 ) return l1 || l2
+
+curN.next = l1 || l2; -- l1.length > < l2.length => curN.length + l1.length || l2.length
+
+-------------------
 
 
 
