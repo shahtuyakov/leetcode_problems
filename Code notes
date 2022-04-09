@@ -123,6 +123,32 @@ let sortedArray = [...map.entries()].sort((a, b) => b[1] - a[1]);
 
 -----------------
 
+Create array from linked list
+
+function traverseList(list) {
+    let head = list
+    let array = [];
+    while(head != null) {
+        array.push(head.val)
+        head = head.next
+    }
+    
+    return array
+}
+
+---------------
+
+Create Linked List from array
+
+function createList(array) {
+    var list = null;
+  for (var i = array.length - 1; i >= 0; i--)
+    list = {val: array[i], next: list};
+  return list;
+}
+
+--------------------
+
 
 
 
