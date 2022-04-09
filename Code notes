@@ -102,6 +102,14 @@ for (let i = 0; i < nums.length; i++){
     obj[nums[i]] = (obj[nums[i]] || 0) + 1;
 }
 
+---------------
+
+Obj to arr 
+
+let x = [...Object.keys(obj)]
+
+-----------
+
 
 
 
