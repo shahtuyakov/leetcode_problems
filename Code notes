@@ -93,6 +93,14 @@ anyStones = [6,5,4,4,2,1];
 
 -------------
 
+Count duplicates in arr
+
+let nums = [1,2,3,4,4,6,7,7];
+let obj = {};
+
+for (let i = 0; i < nums.length; i++){
+    obj[nums[i]] = (obj[nums[i]] || 0) + 1;
+}
 
 
 
