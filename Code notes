@@ -115,6 +115,12 @@ Map array of elements
 let map = new Map();
 nums.forEach(n => map.set(n, map.get(n) + 1 || 1));
 
+-------------------
+
+sortedArray of map elements by value
+
+let sortedArray = [...map.entries()].sort((a, b) => b[1] - a[1]);
+
 -----------------
 
 
