@@ -1,4 +1,4 @@
-Swap elements in arr
+#Swap elements in arr
 
 const swap = (a, b) => [arr[a],arr[b]] = [arr[b],arr[a]]
 
