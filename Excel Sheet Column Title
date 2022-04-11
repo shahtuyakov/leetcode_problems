@@ -1,0 +1,14 @@
+/**
+ * @param {number} columnNumber
+ * @return {string}
+ */
+var convertToTitle = function(columnNumber) {
+    
+    let result = '';
+    while(columnNumber > 0) {
+        const letter = columnNumber % 26 || 26;
+        result = String.fromCharCode(64 + letter) + result;
+        columnNumber = (columnNumber - letter) / 26;
+    }
+    return result;
+}
