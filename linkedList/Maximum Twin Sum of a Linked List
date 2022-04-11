@@ -1,0 +1,45 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {number}
+ */
+var pairSum = function(head) {
+    let s = head, f = head;
+    let sum = 0;
+    
+    let reverse = (head) =>{
+        let p = null, n = null;
+        
+        while (head){
+            n = head.next;
+            head.next = p;
+            p = head;
+            head = n;
+        }
+        return p;
+    }
+    
+    while (f.next && f.next.next){
+        s = s.next;
+        f = f.next.next;
+    }
+    s.next = reverse(s.next);
+    s = s.next;
+    
+    while (s){
+        if (s.val + head.val > sum){
+            sum = s.val + head.val;
+        }
+        s = s.next;
+        head = head.next;
+    }
+    
+    return sum;
+    
+};
