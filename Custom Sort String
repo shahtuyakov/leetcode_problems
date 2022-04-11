@@ -1,0 +1,22 @@
+/**
+ * @param {string} order
+ * @param {string} s
+ * @return {string}
+ */
+var customSortString = function(order, s) {
+    
+    let str = s.split("");
+    let ord = order.split("");
+    let res = [];
+    
+    for (let i = 0; i < ord.length; i++){
+        for (let j = 0; j < str.length; j++){
+            if (ord[i] === str[j]){
+                res.push(str[j]);
+                str.splice(j, 1);
+                j--;
+            }
+        }
+    }
+    return res.concat(str).join("");
+};
