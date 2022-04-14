@@ -10,3 +10,5 @@ var arrangeCoins = function(n) {
     }
     return stairs-1
 };
+
+
