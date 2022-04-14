@@ -1,0 +1,25 @@
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+var searchMatrix = function(matrix, target) {
+
+    let s = 0;
+    let e = matrix.length;
+    
+    while (s < e){
+        let i = 0;
+        let j = matrix[s].length;
+        while (i < j){
+            let el = matrix[s][i];
+            if (el === target){
+                return true;
+            }
+            i++;
+        }
+        s++
+    }
+    return false;
+    
+};
