@@ -190,6 +190,12 @@ while(fast.next != null && fast.next.next != null){
 
 ----------------
 
+Range between [-231, 231 - 1]
+
+res > Math.pow(2, 31) - 1 || res < -Math.pow(2, 31)
+
+-----------------------------------------------
+
 
 
 
