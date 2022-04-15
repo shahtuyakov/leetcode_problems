@@ -1,0 +1,22 @@
+/**
+ * @param {number} c
+ * @return {boolean}
+ */
+var judgeSquareSum = function(c) {
+    let start = 0;
+    let end = Math.sqrt(c) << 0
+    
+    while (start <= end){
+        let cur = start ** 2 + end ** 2;
+        if (cur === c){
+            return true;
+        }
+        else if (cur > c){
+            end -= 1;
+        }
+        else {
+            start += 1;
+        }
+    }
+    return false;
+};
