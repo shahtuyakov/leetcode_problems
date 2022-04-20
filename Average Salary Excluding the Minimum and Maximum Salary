@@ -31,3 +31,5 @@ var average = function(salary) {
     return res / c;
 };
 
+
+
