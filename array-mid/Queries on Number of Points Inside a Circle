@@ -1,0 +1,36 @@
+/**
+ * @param {number[][]} points
+ * @param {number[][]} queries
+ * @return {number[]}
+ */
+var countPoints = function(points, queries) {
+    let res = [];
+    
+    // Using the cricle formulas (x1-x2)^2+(y1-y2)^2 = r^2
+    
+    for (let i = 0; i < queries.length; i++){
+        let rad = queries[i][2];
+        let x1 = queries[i][0];
+        let y1 = queries[i][1];
+        
+        let count = 0;
+        
+        for (let j = 0; j < points.length; j++){
+            let x2 = points[j][0];
+            let y2 = points[j][1];
+            
+            // calculate the distance between centre of the circle 
+            let a = Math.pow((x1 - x2), 2)
+            let b = Math.pow((y1 - y2), 2);
+            let dis = a + b;
+            
+            
+            // check if distance is less/equal than radius or not
+            if (dis <= rad * rad){
+                count++;
+            }
+        }
+        res.push(count);
+    }
+    return res;
+};
