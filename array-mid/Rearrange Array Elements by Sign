@@ -1,0 +1,20 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var rearrangeArray = function(nums) {
+    let res = [];
+    let k = 0, l = 1;
+    
+    for (let i = 0; i < nums.length; i++){
+        if (nums[i] > 0){
+            res[k] = nums[i];
+            k += 2;
+        }
+        else {
+            res[l] = nums[i];
+            l += 2;
+        }
+    }
+    return res;
+};
