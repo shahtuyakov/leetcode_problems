@@ -1,0 +1,19 @@
+var findingUsersActiveMinutes = function(logs, k) {
+    const hash = {};
+    
+    for (const [id,minute] of logs) {
+        if (!hash[id]) {
+            hash[id] = new Set();
+        }
+        
+        hash[id].add(minute);
+    }
+    
+    const res = Array(k).fill(0);
+    
+    Object.keys(hash).forEach((id) => {
+        res[hash[id].size - 1]++;
+    });
+    
+    return res;
+};
