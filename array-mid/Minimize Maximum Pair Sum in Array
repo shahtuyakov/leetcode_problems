@@ -1,0 +1,17 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minPairSum = function(nums) {
+    nums.sort((a, b) => a - b);
+    let i = 0, j = nums.length - 1, res = 0;
+    
+    while (i < j){
+        nums[i] + nums[j] > res ? res = nums[i] + nums[j] : res;
+        i++;
+        j--;
+    }
+    
+    return res;
+    
+};
