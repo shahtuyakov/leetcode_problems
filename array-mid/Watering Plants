@@ -1,0 +1,24 @@
+/**
+ * @param {number[]} plants
+ * @param {number} capacity
+ * @return {number}
+ */
+var wateringPlants = function(plants, capacity) {
+    let i = 0;
+    let steps = 0;
+    let water = capacity;
+    
+    while (i < plants.length) {
+        if (plants[i] > water) {
+            steps += 2 * i;
+            water = capacity;
+            continue;
+        }
+
+        water -= plants[i];
+        i++;
+        steps++;
+    }
+
+    return steps;
+};
