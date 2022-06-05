@@ -1,0 +1,18 @@
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var uniqueOccurrences = function(arr) {
+    let uniq = {};
+    let uniqNum = [];
+    
+    for (let i = 0; i < arr.length; i++){
+        uniq[arr[i]] = (uniq[arr[i]] || 0) + 1;
+    }
+    
+    for (let key in uniq){
+        uniqNum.push(uniq[key]);
+    }
+    
+    return new Set(uniqNum).size !== uniqNum.length ? false : true;
+};
