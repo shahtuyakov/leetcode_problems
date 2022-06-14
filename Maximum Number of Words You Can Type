@@ -1,0 +1,27 @@
+/**
+ * @param {string} text
+ * @param {string} brokenLetters
+ * @return {number}
+ */
+var canBeTypedWords = function(text, brokenLetters) {
+    const map = new Map();
+    for (let i = 0; i < brokenLetters.length; i++) {
+        map.set(brokenLetters[i], true);
+    }
+    const words = text.split(' ');
+    let count = 0;
+    for (let i = 0; i < words.length; i++) {
+        let word = words[i];
+        let can = true;
+        for (let j = 0; j < word.length; j++) {
+            if (map.has(word[j])) {
+                can = false;
+                break;
+            }
+        }
+        if (can) {
+            count++;
+        }
+    }
+    return count;
+};
