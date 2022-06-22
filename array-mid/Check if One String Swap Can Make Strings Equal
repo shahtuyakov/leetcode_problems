@@ -1,0 +1,19 @@
+var areAlmostEqual = function(s1, s2) {
+    if (s1.length !== s2.length) return false
+    let diff = 0;
+    let tempSwap = [];
+    for (let i = 0; i < s1.length; i++) {
+        let a = s1[i];
+        let b = s2[i];
+        if (a === b) continue;
+        diff++;
+        if (diff > 2) return false;
+        if (!tempSwap.length) {
+            tempSwap = [a, b];
+            continue;
+        }
+        if (tempSwap[0] === b && tempSwap[1] === a) continue;
+        return false;
+    }
+    return diff === 2 || diff === 0;
+};
